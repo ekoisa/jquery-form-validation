@@ -10,7 +10,7 @@ ___
 
 # USAGE
 
-## Initialize Form
+## Initialize Form and execute validation
 Declaring variable to handle form validation
 
 ### Arguments
@@ -24,12 +24,10 @@ __Example__
 	var validForm = new validity();
 	
 	// one row initialize
-	
 		validForm.init({selector:"#txname", field:"Name", rules:"required|alphanumeric|trim"});
 		
 		
 	// multi row initialize
-	
 		validForm.init([{selector:"#txage", field:"Age", rules:"required|trim"}, 
 						{selector:"#txschool", field:"School", rules:"required|trim"},
 						{selector:"#txgender", field:"Gender", rules:"required|trim", message:"You must choose gender"}]);
@@ -39,27 +37,17 @@ __Example__
 	
 		e.preventDefault();
 		
-		
 		// custom javascript validation
-		
 		if(!document.getElementById("txname").value && !document.getElementById("txage").value){
-		
 			validForm.append("Please insert Name and Age");
-			
 		}
 		
-		
+		// excute validation
 		var stsValid = validForm.validate();
-		
 		if(stsValid){
-		
 			$('form[name="frmTest"]').submit();
-			
 		}
-		
 	});
-	
 	});
-
 
 ___
